@@ -22,7 +22,7 @@ export interface Course {
 export const courses: Course[] = [
   {
     slug: "devops-foundations",
-    title: "DevOps Foundations",
+    title: "DevOps Foundations for Beginners",
     summary:
       "Learn Linux, Git, CI/CD, Docker, networking, and automation basics.",
     homeTeaser: "Linux, Git, networking, scripting, CI/CD.",
