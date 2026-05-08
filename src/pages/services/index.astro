@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { serviceOfferings } from "../../data/services";
+---
+
+<BaseLayout
+  title="Services | OpsForge Labs"
+  description="OpsForge Labs — software development, AI solutions, consulting, staffing, and DevOps & AI training for enterprise teams."
+  active="services"
+  keywords="software services, AI consulting, DevOps, cloud engineering, technology staffing, India"
+>
+  <main>
+    <header class="page-hero">
+      <div class="container">
+        <p class="section-label">What we do</p>
+        <h1>Software, AI, and <span class="gradient-text">cloud engineering</span> — end to end</h1>
+        <p>
+          We partner with organizations to deliver products, deploy AI responsibly, improve platforms,
+          and place the right talent — with an academy that keeps teams sharp on real-world DevOps
+          and AI operations.
+        </p>
+      </div>
+    </header>
+
+    <section>
+      <div class="container">
+        {
+          serviceOfferings.map((s, i) => (
+            <div class="track-item">
+              <span class="track-num">{String(i + 1).padStart(2, "0")}</span>
+              <div>
+                <h4>{s.title}</h4>
+                <p>{s.summary}</p>
+                <ul class="list-check" style="margin-top:0.75rem">
+                  {s.highlights.map((h) => (
+                    <li>{h}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section>
+      <div class="container two-col">
+        <div>
+          <p class="section-label">Academy</p>
+          <h2 class="section-title">DevOps &amp; AI training</h2>
+          <p class="section-desc mt-0">
+            Our training arm offers production-style tracks for individuals and teams — the same
+            engineering rigor we bring to client delivery.
+          </p>
+        </div>
+        <div>
+          <a href="/courses/" class="btn btn-primary btn-lg" style="margin-top:0.5rem"
+            >View training programs</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta-band">
+          <h2>Have a project or role in mind?</h2>
+          <p>Tell us about scope, timelines, and stack — we’ll respond with a clear next step.</p>
+          <a href="/contact/" class="btn btn-primary btn-lg">Contact us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
