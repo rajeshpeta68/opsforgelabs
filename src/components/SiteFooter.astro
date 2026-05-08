@@ -1,0 +1,41 @@
+---
+interface Props {
+  extended?: boolean;
+}
+
+const { extended } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <span class="logo-mark" aria-hidden="true">OF</span>
+        OpsForge Labs
+      </a>
+      <p>Premium real-world DevOps &amp; AI engineering academy.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/courses/">Courses</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:rajesh@opsforgelabs.in">rajesh@opsforgelabs.in</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    © {year} OpsForge Labs
+    {extended ? ". Real-world DevOps training for the AI era." : "."}
+  </div>
+</footer>

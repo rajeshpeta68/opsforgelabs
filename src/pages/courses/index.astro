@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { courses } from "../../data/courses";
+---
+
+<BaseLayout
+  title="Courses | OpsForge Labs"
+  description="OpsForge Labs courses — DevOps Foundations, Kubernetes & Cloud, AI for DevOps, Production Troubleshooting Labs, Interview Prep."
+  active="courses"
+>
+  <main>
+    <header class="page-hero">
+      <div class="container">
+        <p class="section-label">Courses</p>
+        <h1>Production-grade <span class="gradient-text">learning tracks</span></h1>
+        <p>
+          Structured paths from foundations to incident response — always anchored in real enterprise
+          scenarios.
+        </p>
+      </div>
+    </header>
+
+    <section>
+      <div class="container">
+        {
+          courses.map((c, i) => (
+            <div class="track-item">
+              <span class="track-num">{String(i + 1).padStart(2, "0")}</span>
+              <div>
+                <h4>{c.title}</h4>
+                <p>{c.summary}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta-band">
+          <h2>Questions about fit or schedule?</h2>
+          <p>Book a short call — we’ll map your background to the right track.</p>
+          <a href="/contact/" class="btn btn-primary btn-lg">Book free demo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

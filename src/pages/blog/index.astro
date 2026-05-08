@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { blogTopics } from "../../data/blog-topics";
+---
+
+<BaseLayout
+  title="Blog | OpsForge Labs"
+  description="OpsForge Labs blog — Kubernetes, production incidents, DevOps interviews, CI/CD, observability, and AI in operations."
+  active="blog"
+>
+  <main>
+    <header class="page-hero">
+      <div class="container">
+        <p class="section-label">Blog</p>
+        <h1>Ideas for <span class="gradient-text">upcoming articles</span></h1>
+        <p>
+          Topics are driven from src/data/blog-topics.ts — swap for Markdown posts when you publish.
+        </p>
+      </div>
+    </header>
+
+    <section>
+      <div class="container blog-list">
+        {
+          blogTopics.map((post) => (
+            <article class="blog-row">
+              <div>
+                <h3>{post.title}</h3>
+                <p>{post.description}</p>
+              </div>
+              <span class="blog-tag">{post.status}</span>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</BaseLayout>

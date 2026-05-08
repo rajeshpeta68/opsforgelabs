@@ -1,0 +1,40 @@
+---
+import type { NavKey } from "../site/nav";
+
+interface Props {
+  active: NavKey;
+}
+
+const { active } = Astro.props;
+
+const linkClass = (key: NavKey) =>
+  active === key ? "active" : undefined;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <span class="logo-mark" aria-hidden="true">OF</span>
+      OpsForge Labs
+    </a>
+    <button
+      type="button"
+      class="nav-toggle"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+      aria-label="Open menu">☰</button>
+    <nav id="primary-nav" aria-label="Primary">
+      <ul class="nav-list">
+        <li><a href="/" class={linkClass("home")}>Home</a></li>
+        <li><a href="/about/" class={linkClass("about")}>About</a></li>
+        <li><a href="/courses/" class={linkClass("courses")}>Courses</a></li>
+        <li><a href="/blog/" class={linkClass("blog")}>Blog</a></li>
+        <li><a href="/contact/" class={linkClass("contact")}>Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-cta">
+      <a href="/contact/" class="btn btn-outline">Book Demo</a>
+      <a href="/contact/" class="btn btn-primary">Join Batch</a>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,72 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Contact | OpsForge Labs"
+  description="Contact OpsForge Labs — training, mentorship, workshops, consulting, corporate sessions."
+  active="contact"
+>
+  <main>
+    <header class="page-hero">
+      <div class="container">
+        <p class="section-label">Contact OpsForge Labs</p>
+        <h1>Get in <span class="gradient-text">touch</span></h1>
+        <p>
+          Interested in training programs, mentorship, workshops, DevOps consulting, or corporate
+          sessions — reach out.
+        </p>
+      </div>
+    </header>
+
+    <section>
+      <div class="container contact-grid">
+        <div class="contact-card">
+          <h3>Direct</h3>
+          <p style="color:var(--text-muted); margin-top:0;">
+            <strong style="color:var(--text);">Email</strong><br />
+            <a href="mailto:rajesh@opsforgelabs.in">rajesh@opsforgelabs.in</a>
+          </p>
+          <p style="color:var(--text-muted);">
+            <strong style="color:var(--text);">WhatsApp</strong><br />
+            Add later
+          </p>
+          <p style="color:var(--text-muted); margin-bottom:0;">
+            <strong style="color:var(--text);">LinkedIn</strong><br />
+            Add company page
+          </p>
+        </div>
+        <div class="contact-card">
+          <h3>Message</h3>
+          <form id="lead-form">
+            <div class="form-group">
+              <label for="c-name">Name</label>
+              <input id="c-name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="form-group">
+              <label for="c-email">Email</label>
+              <input id="c-email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="form-group">
+              <label for="c-interest">Interest</label>
+              <select id="c-interest" name="interest">
+                <option value="Training programs">Training programs</option>
+                <option value="Mentorship">Mentorship</option>
+                <option value="Workshops">Workshops</option>
+                <option value="DevOps consulting">DevOps consulting</option>
+                <option value="Corporate sessions">Corporate sessions</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="c-message">Message</label>
+              <textarea id="c-message" name="message" required placeholder="How can we help?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%">Send via email</button>
+            <p class="form-hint">Opens your mail client with a prefilled message. Swap for Formspree or API when ready.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
