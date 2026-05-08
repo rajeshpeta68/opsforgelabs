@@ -10,7 +10,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy": "astro build && sudo systemctl reload nginx"
+    "deploy": "astro build && sudo rsync -a --delete dist/ /var/www/opsforgelabs/ && sudo systemctl reload nginx"
   },
   "dependencies": {
     "astro": "^5.1.0"
