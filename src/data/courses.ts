@@ -1,6 +1,6 @@
 /**
  * Single source of truth for course listings.
- * Edit this file to update the home page "Core learning tracks" and /courses — no HTML edits.
+ * Edit this file to update the home Academy strip and /courses (Training page) — no HTML edits.
  *
  * - `featuredOnHome`: include in the home page curriculum strip (typically core tracks only).
  * - `homeTitle` / `homeTeaser`: optional overrides when the marketing line on home differs from /courses.

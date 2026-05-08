@@ -1,14 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { coursesForHome } from "../data/courses";
+import { serviceOfferings } from "../data/services";
 
 const homeCourses = coursesForHome();
 ---
 
 <BaseLayout
-  title="OpsForge Labs | Real-World DevOps & AI Engineering Academy"
-  description="OpsForge Labs — Real-world DevOps & AI engineering academy. Production-grade Kubernetes, cloud, Linux, automation, and AI-powered operations."
-  keywords="DevOps training, Kubernetes, AI DevOps, enterprise engineering, production troubleshooting"
+  title="OpsForge Labs | Software, AI & Cloud Engineering"
+  description="OpsForge Labs — software services, AI solutions, consulting, staffing, and hands-on DevOps & AI training for modern enterprises."
+  keywords="software company, AI solutions, DevOps consulting, cloud engineering, technology staffing, DevOps training"
   active="home"
   footerExtended={true}
 >
@@ -16,37 +17,71 @@ const homeCourses = coursesForHome();
     <section class="hero">
       <div class="container">
         <p class="hero-badge">
-          <span class="dot" aria-hidden="true"></span> Premium DevOps + AI engineering academy
+          <span class="dot" aria-hidden="true"></span> Software · AI · Cloud · Consulting · Talent
         </p>
         <h1><span class="gradient-text">OpsForge Labs</span></h1>
         <p class="hero-lead">
-          Real-World DevOps &amp; AI Engineering Academy — learn production-grade DevOps, Kubernetes,
-          cloud, Linux, automation, and AI-powered operations through real enterprise scenarios.
+          We help enterprises build and run modern software — custom engineering, practical AI,
+          platform &amp; DevOps consulting, staffing, and a premium academy for production-grade
+          DevOps and AI operations.
         </p>
         <div class="hero-actions">
-          <a href="/courses/" class="btn btn-primary btn-lg">Explore Courses</a>
-          <a href="/contact/" class="btn btn-secondary btn-lg">Join Community</a>
-          <a href="/contact/" class="btn btn-outline btn-lg">Book Free Demo</a>
+          <a href="/services/" class="btn btn-primary btn-lg">Explore services</a>
+          <a href="/contact/" class="btn btn-secondary btn-lg">Talk to us</a>
+          <a href="/courses/" class="btn btn-outline btn-lg">DevOps training</a>
         </div>
 
         <div class="hero-visual" aria-hidden="true">
           <div class="terminal-bar">
             <div class="terminal-dots"><span></span><span></span><span></span></div>
-            <span>opsforge — kubectl · pipeline · aiops</span>
+            <span>opsforge — ship · automate · ai · scale</span>
           </div>
           <div class="terminal-body">
-            <span class="prompt">student@opsforge:~$</span>
-            <span class="cmd">kubectl get pods -n prod</span><br />
-            <span class="hl">NAME</span>
-            <span class="hl">READY</span>
-            <span class="hl">STATUS</span>
-            <span class="hl">RESTARTS</span><br />
-            api-gateway-7d9ff     2/2     Running     0<br />
-            worker-batch-a      1/2     <span style="color:#fbbf24">CrashLoopBackOff</span>   12<br />
-            <span class="prompt">student@opsforge:~$</span>
-            <span class="cmd"># trace CI/CD, logs, helm rollback — in the lab</span>
+            <span class="prompt">client@opsforge:~$</span>
+            <span class="cmd">opsforge status --delivery --ai --platform</span><br />
+            <span class="hl">SERVICE</span> &nbsp; engineering · consulting · staffing · academy<br />
+            <span class="hl">STACK</span> &nbsp; k8s · cicd · observability · llm-ops<br />
+            <span class="prompt">client@opsforge:~$</span>
+            <span class="cmd"># from roadmap to production — one partner</span>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-label">What we do</p>
+          <h2 class="section-title">One partner for delivery, AI, and talent</h2>
+          <p class="section-desc">
+            Whether you need product velocity, AI that survives production, advisory depth, or people
+            who hit the ground running — we align engineering discipline with business outcomes.
+          </p>
+        </header>
+        <div class="cards-grid">
+          {
+            serviceOfferings.map((s) => (
+              <article class="card">
+                <div class="icon-tag" aria-hidden="true">
+                  {s.slug === "software"
+                    ? "◆"
+                    : s.slug === "ai"
+                      ? "◇"
+                      : s.slug === "consulting"
+                        ? "◎"
+                        : s.slug === "staffing"
+                          ? "▣"
+                          : "⌁"}
+                </div>
+                <h3>{s.title}</h3>
+                <p>{s.summary}</p>
+              </article>
+            ))
+          }
+        </div>
+        <p style="margin-top: 1.25rem">
+          <a href="/services/" class="btn btn-secondary">Full services overview</a>
+        </p>
       </div>
     </section>
 
@@ -54,32 +89,32 @@ const homeCourses = coursesForHome();
       <div class="container">
         <header class="section-header">
           <p class="section-label">Why OpsForge Labs</p>
-          <h2 class="section-title">Built for the AI era</h2>
+          <h2 class="section-title">Built for serious engineering</h2>
           <p class="section-desc">
-            Most institutes teach outdated theory. At OpsForge Labs, we focus on what modern teams
-            actually ship and operate.
+            We combine product-minded delivery with operator-grade reliability — so launches stick and
+            teams stay in control.
           </p>
         </header>
         <div class="cards-grid">
           <article class="card">
             <div class="icon-tag" aria-hidden="true">⚡</div>
-            <h3>Real-world troubleshooting</h3>
-            <p>Diagnose failures the way production engineers do — not textbook answers.</p>
+            <h3>Production-first mindset</h3>
+            <p>Shipping features with observability, security, and rollback paths — not MVP chaos.</p>
           </article>
           <article class="card">
             <div class="icon-tag" aria-hidden="true">🏗</div>
-            <h3>Enterprise deployment workflows</h3>
-            <p>CI/CD, releases, rollbacks, and environments modeled on real pipelines.</p>
+            <h3>Platform &amp; DevOps depth</h3>
+            <p>CI/CD, Kubernetes, cloud foundations, and automation that teams can sustain.</p>
           </article>
           <article class="card">
             <div class="icon-tag" aria-hidden="true">🤖</div>
-            <h3>AI-assisted operations</h3>
-            <p>Use AI thoughtfully for automation, triage, and ops workflows.</p>
+            <h3>AI that fits operations</h3>
+            <p>Workflow automation and AI-assisted ops grounded in your data and governance reality.</p>
           </article>
           <article class="card">
             <div class="icon-tag" aria-hidden="true">🎯</div>
-            <h3>Production-ready engineering</h3>
-            <p>Skills that transfer directly to on-call, incidents, and shipping features.</p>
+            <h3>Talent &amp; enablement</h3>
+            <p>Staffing aligned to your stack plus academy programs that upskill your bench.</p>
           </article>
         </div>
       </div>
@@ -88,34 +123,25 @@ const homeCourses = coursesForHome();
     <section id="different">
       <div class="container">
         <header class="section-header">
-          <p class="section-label">What makes us different</p>
-          <h2 class="section-title">Enterprise depth, hands-on by default</h2>
+          <p class="section-label">How we work</p>
+          <h2 class="section-title">Clear outcomes, transparent execution</h2>
         </header>
         <div class="cards-grid">
           <article class="card">
-            <h3>Real enterprise experience</h3>
-            <p>
-              Learn from engineers with production and infrastructure experience — not slides-only
-              instructors.
-            </p>
+            <h3>Discovery &amp; alignment</h3>
+            <p>We clarify goals, constraints, and success metrics before touching code or models.</p>
           </article>
           <article class="card">
-            <h3>Hands-on labs</h3>
-            <p>
-              Practice deployment scenarios, CI/CD pipelines, Kubernetes clusters, monitoring, and
-              automation.
-            </p>
+            <h3>Delivery squads</h3>
+            <p>Dedicated engineers who integrate with your rituals — demos, reviews, on-call readiness.</p>
           </article>
           <article class="card">
-            <h3>AI + DevOps integration</h3>
-            <p>
-              Understand how AI is transforming infrastructure operations and how to apply it
-              responsibly.
-            </p>
+            <h3>Operate &amp; improve</h3>
+            <p>Handoffs that include runbooks, monitoring, and a path for continuous improvement.</p>
           </article>
           <article class="card">
-            <h3>Interview &amp; career focus</h3>
-            <p>Prepare for real DevOps interviews and production troubleshooting rounds.</p>
+            <h3>Academy layer</h3>
+            <p>Optional training tracks so your organization scales skills alongside delivery.</p>
           </article>
         </div>
       </div>
@@ -124,8 +150,12 @@ const homeCourses = coursesForHome();
     <section id="tracks">
       <div class="container">
         <header class="section-header">
-          <p class="section-label">Curriculum</p>
-          <h2 class="section-title">Core learning tracks</h2>
+          <p class="section-label">OpsForge Academy</p>
+          <h2 class="section-title">DevOps &amp; AI training tracks</h2>
+          <p class="section-desc">
+            Hands-on programs for engineers — real scenarios, not slide-only theory.
+            <a href="/courses/">View all programs →</a>
+          </p>
         </header>
         {
           homeCourses.map((c, i) => (
@@ -146,21 +176,21 @@ const homeCourses = coursesForHome();
         <div class="two-col">
           <div>
             <header class="section-header">
-              <p class="section-label">Real-world labs</p>
+              <p class="section-label">Academy labs</p>
               <h2 class="section-title">Learn beyond tutorials</h2>
               <p class="section-desc mt-0">
-                Students work on scenarios that mirror production — not copy-paste demos.
+                Learners practice incidents, pipelines, and cluster failures the way teams see them in
+                production.
               </p>
             </header>
           </div>
           <ul class="list-check">
-            <li>Deployment failures</li>
+            <li>Deployment &amp; rollback drills</li>
             <li>Kubernetes troubleshooting</li>
             <li>CI/CD debugging</li>
             <li>Monitoring &amp; alerting</li>
             <li>Infrastructure automation</li>
-            <li>Upgrade scenarios</li>
-            <li>Rollback simulations</li>
+            <li>Upgrade &amp; migration scenarios</li>
           </ul>
         </div>
       </div>
@@ -169,12 +199,11 @@ const homeCourses = coursesForHome();
     <section id="vision">
       <div class="container">
         <header class="section-header">
-          <p class="section-label">Future vision</p>
-          <h2 class="section-title">The future of engineering is AI-assisted operations</h2>
+          <p class="section-label">Where we’re headed</p>
+          <h2 class="section-title">AI-assisted engineering at enterprise scale</h2>
           <p class="section-desc">
-            Companies increasingly need engineers who can automate infrastructure, operate
-            cloud-native systems, use AI tools effectively, and solve production problems fast.
-            OpsForge Labs prepares engineers for that future.
+            Organizations need partners who can ship software, embed AI responsibly, and grow internal
+            capability. OpsForge Labs brings delivery, advisory, talent, and training under one roof.
           </p>
         </header>
       </div>
@@ -183,17 +212,17 @@ const homeCourses = coursesForHome();
     <section id="testimonials">
       <div class="container">
         <header class="section-header">
-          <p class="section-label">Voices from the cohort</p>
-          <h2 class="section-title">Testimonials</h2>
-          <p class="section-desc">Placeholder quotes — add real testimonials as you collect them.</p>
+          <p class="section-label">Proof points</p>
+          <h2 class="section-title">What clients &amp; learners say</h2>
+          <p class="section-desc">Placeholder quotes — replace with real client and cohort testimonials.</p>
         </header>
         <div class="testimonial-grid">
           <figure class="testimonial">
-            <blockquote>“Real-world practical sessions unlike generic training institutes.”</blockquote>
-            <cite>— Placeholder learner</cite>
+            <blockquote>“Clear ownership from discovery through production — rare in consulting.”</blockquote>
+            <cite>— Placeholder client</cite>
           </figure>
           <figure class="testimonial">
-            <blockquote>“Production troubleshooting experience was extremely valuable.”</blockquote>
+            <blockquote>“Training felt like real on-call work, not generic classroom material.”</blockquote>
             <cite>— Placeholder learner</cite>
           </figure>
         </div>
@@ -203,9 +232,12 @@ const homeCourses = coursesForHome();
     <section id="cta" aria-labelledby="cta-heading">
       <div class="container">
         <div class="cta-band">
-          <h2 id="cta-heading">Start building production-ready skills</h2>
-          <p>Join OpsForge Labs and prepare for modern DevOps &amp; AI engineering careers.</p>
-          <a href="/contact/" class="btn btn-primary btn-lg">Join Upcoming Batch</a>
+          <h2 id="cta-heading">Start a conversation</h2>
+          <p>
+            Whether you’re scoping a build, an AI initiative, staffing needs, or the next training
+            cohort — we’re happy to help you map the next step.
+          </p>
+          <a href="/contact/" class="btn btn-primary btn-lg">Contact OpsForge Labs</a>
         </div>
       </div>
     </section>
@@ -213,10 +245,10 @@ const homeCourses = coursesForHome();
     <section id="lead">
       <div class="container">
         <header class="section-header text-center">
-          <p class="section-label">Lead capture</p>
-          <h2 class="section-title">Tell us what you’re aiming for</h2>
+          <p class="section-label">Tell us what you need</p>
+          <h2 class="section-title">Project, staffing, or training — we’ll follow up</h2>
           <p class="section-desc" style="margin-inline: auto;">
-            No backend required for V1 — submitting opens your email client with a prefilled message to
+            Submitting opens your email client with a prefilled message to
             <strong style="color:var(--text)">rajesh@opsforgelabs.in</strong>.
           </p>
         </header>
@@ -240,19 +272,21 @@ const homeCourses = coursesForHome();
             <div class="form-group">
               <label for="lead-interest">Interest</label>
               <select id="lead-interest" name="interest">
-                <option value="Upcoming batch">Upcoming batch</option>
-                <option value="Corporate / workshop">Corporate / workshop</option>
-                <option value="Consulting">Consulting</option>
+                <option value="Software / product engineering">Software / product engineering</option>
+                <option value="AI solutions">AI solutions</option>
+                <option value="Consulting / advisory">Consulting / advisory</option>
+                <option value="Staffing / talent">Staffing / talent</option>
+                <option value="DevOps training / academy">DevOps training / academy</option>
                 <option value="Other">Other</option>
               </select>
             </div>
             <div class="form-group">
               <label for="lead-message">Message</label>
-              <textarea id="lead-message" name="message" placeholder="Goals, timeline, background…"
+              <textarea id="lead-message" name="message" placeholder="Goals, timeline, stack, team size…"
               ></textarea>
             </div>
             <button type="submit" class="btn btn-primary" style="width:100%">Send via email</button>
-            <p class="form-hint">Wire this form to Formspree, Netlify Forms, or your CRM when you’re ready.</p>
+            <p class="form-hint">Connect to Formspree, Netlify Forms, or your CRM when you’re ready.</p>
           </form>
         </div>
       </div>
